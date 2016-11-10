@@ -1,0 +1,169 @@
+ <section class="main-contrainer">
+	<div class="sub-dash-app-container" >
+		<h5>role :<% loginUser.role.role %></h5>
+		<h5>email :<% loginUser.email %></h5>
+		<h5>session_token :<% loginUser.token %></h5>
+
+
+
+		<div class="app-item-container">
+			<div class="row space10">
+				<div class="col-md-12">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						
+						<div style="display: plex;    flex-direction: column;">
+							<h5>Renew Timestap</h5>
+							
+							<button class="btn" ng-click="renew()">Renew
+								<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+							</button>
+						</div>
+						<div >
+							<h5>status : <% renew | json %></h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						
+						<div style="display: plex;    flex-direction: column;">
+							<h5>validateAuthentication</h5>
+							<input type="text" class=" color-blue mar-btm-15" placeholder="Token" ng-model="loginUser.token" >
+							<button class="btn" ng-click="checkAuth()">Check
+								<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+							</button>
+						</div>
+						<div >
+							<h5>status : <% authValid.message %></h5>
+						</div>
+					</div>
+				</div>
+
+				<!-- visit -->
+				<div class="col-md-3" ng-click="visitProduct()">
+					<div class="item-blank" style="">
+						<h5>visit Product</h5>
+					</div>
+				</div>
+
+
+				<div class="col-md-3" ng-click="visitPort()">
+					<div class="item-blank" style="">
+						<h5>visit Port</h5>
+					</div>
+				</div>
+
+
+				<div class="col-md-3" ng-click="visitCountry()">
+					<div class="item-blank" style="">
+						<h5>visit Country</h5>
+					</div>
+				</div>
+
+				<div class="col-md-3" ng-click="visitSean()">
+					<div class="item-blank" style="">
+						<h5>visit Sean</h5>
+					</div>
+				</div>
+
+
+				<!--  -->
+				<div class="col-md-12">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						
+						<div style="display: plex;    flex-direction: column;">
+							<h5>history back</h5>
+							<input type="text" class=" color-blue mar-btm-15" placeholder="Index : eg 1,2,3" ng-model="index" >
+							<button class="btn" ng-click="historyBack()">Back
+								<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+							</button>
+						</div>
+						<div >
+							<h5>URL : <% url %></h5>
+						</div>
+					</div>
+
+				
+				</div>
+
+				<div class="col-md-12">
+					<div>
+						<h5>Most viewed by user</h5>
+						<button class="btn" ng-click="getMostViewedByUser()">getMostViewedByUser
+							<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+						</button>
+					</div>
+					<div class="item-blank" style="">
+						<table>
+							<thead>
+								<th>URL</th>
+								<th>count</th>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in mostViewedByuser">
+									<td><% item._id%></td><td><% item.count %></td>
+								</tr>
+							</tbody>
+						</table>	
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<h5>Most viewed</h5>
+					<button class="btn" ng-click="getMostViewed()">getMostViewed
+						<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+					</button>
+					<div class="item-blank" style="">
+						<table>
+							<thead>
+								<th>URL</th>
+								<th>count</th>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in mostViewed">
+									<td><% item._id%></td><td><% item.count %></td>
+								</tr>
+							</tbody>
+						</table>	
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						
+						<div style="display: plex;    flex-direction: column;">
+							<h5>Role Check Read</h5>
+							<button class="btn" ng-click="readRole()">Read
+								<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+							</button>
+						</div>
+						<div >
+							<h5>message : <% roles %></h5>
+						</div>
+					</div>
+
+				
+				</div>
+				<div class="col-md-6">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						
+						<div style="display: plex;    flex-direction: column;">
+							<h5>Role Check Write</h5>
+							<button class="btn" ng-click="writeRole()">Write
+								<img ng-cloak ng-show="isLogining" src="/images/loading-spin-blue.svg" class="btn-ele-loading" alt="loading spinner">
+							</button>
+						</div>
+						<div >
+							<h5>message : <% role %></h5>
+						</div>
+					</div>
+
+				
+				</div>
+
+			</div>	
+			
+		</div><!--  end app-item-container-->	
+	</div>
+</section>

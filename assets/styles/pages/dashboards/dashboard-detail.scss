@@ -1,0 +1,79 @@
+.sub-dash-detail-container{
+	.app-item-container{
+		padding-top: 90px;
+	}
+	.grap{
+		background-color: $primary-gray;
+		height: 270px;
+	}
+
+	.balance{
+		padding: 0px 15px;
+		background-color: $primary-gray;
+		.title{
+			padding-top: 15px;
+			padding-bottom: 10px;
+			display: flex;
+			align-items: center;
+			color: $primary-orange;
+		}
+		.amount{
+			padding: 20px;
+			text-align: center;
+			color: $primary-dark-blue;
+		}
+	}
+	.schedule{
+		padding: 0px 15px;
+		background-color: $primary-gray;
+		height: 154px;
+		.title{
+			position: relative;
+			padding-top: 15px;
+			padding-bottom: 10px;
+			display: flex;
+			align-items: center;
+			.see-all{
+				position: absolute;
+   				right: 0;
+			}
+		}
+		.list-item-tittle{
+			padding-top: 10px;
+		}
+		.list-item-date{
+			padding-top: 5px;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.anouncement{
+		padding: 15px 15px;
+		background-color: $primary-gray;
+		display: flex;
+		align-items:center;
+	}
+	.recent-send-msg{
+		background-color: $primary-gray;
+		padding: 0 20px 10px 20px;
+		.main-title{
+			padding: 25px 0 10px 0;
+		}
+		.table-block{
+			padding: 0 10px;
+			.fix-c{
+				padding: 14px 8px;
+			}
+			.row-item{
+				&:nth-child(odd) {
+					background-color: $primary-dark-gray;
+				}
+				&:nth-child(even) {
+					background-color:$primary-gray;
+				}
+			}
+		}
+	}
+
+}

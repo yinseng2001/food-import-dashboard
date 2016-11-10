@@ -1,0 +1,23 @@
+[
+	{
+	    "_id" : ObjectId("5811709446460f0eb8690a7f"),
+	    "role" : "read",
+	    "created_at" : ISODate("2016-10-27T03:12:20.527Z"),
+	    "updated_at" : ISODate("2016-10-27T03:12:20.527Z"),
+	    "__v" : 0
+	},
+	{
+	    "_id" : ObjectId("581170a346460f0eb8690a80"),
+	    "role" : "write",
+	    "created_at" : ISODate("2016-10-27T03:12:35.012Z"),
+	    "updated_at" : ISODate("2016-10-27T03:12:35.012Z"),
+	    "__v" : 0
+	},
+	{
+	    "_id" : ObjectId("581170a746460f0eb8690a81"),
+	    "role" : "both",
+	    "created_at" : ISODate("2016-10-27T03:12:39.302Z"),
+	    "updated_at" : ISODate("2016-10-27T03:12:39.302Z"),
+	    "__v" : 0
+	}
+]

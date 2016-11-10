@@ -1,0 +1,88 @@
+
+<div class="sub-nav-contrainer" ng-controller="nav">
+	<div class="logo-line" ng-click="application()">
+		<img src="/images/logo/alertify-logo.png" alt="Logo" >
+	</div>
+	<div class="item-row" ng-cloak ng-show="isShowMyApp">
+		<div class="item">
+			<span class="icon-apps cus-icon"></span>
+			<span class="title" >Your App</span> <span class="badge cus-badge">1</span>
+		</div>
+	</div>
+	<div ng-cloak ng-hide="isShowMyApp">
+		<div class="item-row" >
+			<div class="item">
+				<span  >Overview</span>
+			</div>
+		</div>
+		<h5 class="app-setting">App Setting</h5>
+		<!-- collapse -->
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+			<div class="panel1 panel-default1">
+				<div class="panel-heading" role="tab" id="headingOne">
+					<h6 class="panel-title">
+					<span class="icon-mail_outline cus-icon"></span>
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						SMS
+					</a>
+					</h6>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body1 ">
+						<ul class="list-group">
+							<li class="list-item" ng-class="{selected:path == '/sent'}" ng-click="messageSent()">All Message</li>
+							<li class="list-item" ng-class="{selected:path == '/send'}" ng-click="sendMessage()">Send</li>
+							<li class="list-item" ng-class="{selected:path == '/schedule'}" ng-click="schedule()">Scheduled</li>
+							<li class="list-item pad-bottom-15" ng-class="{selected:path == '/template'}" ng-click="template()">Template</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel1 panel-default1">
+				<div class="panel-heading" role="tab" id="headingTwo">
+					<h6 class="panel-title">
+					<span class="icon-person_outline cus-person"></span>
+					<a  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+						USERS
+					</a>
+					</h6>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body1">
+						<ul class="list-group">
+							<li class="list-item" ng-class="{selected:path=='/member'}" ng-click="members()">All Members</li>
+							<li class="list-item pad-bottom-15" ng-class={selected:path=='/group'} ng-click="membersGroup()">Members Group</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel1 panel-default1">
+				<div class="panel-heading" role="tab" id="headingThree">
+					<h6 class="panel-title">
+					<span class="icon-question-circle-o cus-icon"></span>
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+						HELP
+					</a>
+					</h6>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body1">
+						<ul class="list-group">
+							<li class="list-item" ng-class="{selected:path=='/faq'}" ng-click="faq()">FAQ</li>
+							<li class="list-item" ng-class="{selected:path=='/feedback'}" ng-click="feedback()">Feedback</li>
+							<li class="list-item pad-bottom-15" ng-class="{selected:path=='/pricing'}" ng-click="pricing()">Pricing</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end collapse -->
+	</div>
+	
+	<div class="item-row profile">
+		
+		<div class="img" style="background-image: url('/images/image.jpg');"></div>
+		<h5 class="title">Seng Panha</h5>
+		<span class="icon-dots-three-horizontal icon"></span>
+	</div>
+</div>

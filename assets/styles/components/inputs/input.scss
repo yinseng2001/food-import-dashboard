@@ -1,0 +1,60 @@
+
+.input-transparent,.textarea-transparent,.select-transparent{ 
+	border: none;
+	box-shadow: none !important;
+	outline:none;
+	border: none;
+	min-height: 45px;
+	font-size: 16px;
+	border-radius: inherit;
+}
+
+
+.input-tran{
+	width: 100%;
+	outline:none;
+	border: none;
+	background-color: transparent;
+	padding: 15px 0;
+	color: white;
+}
+
+.input-white-bg{
+	width: 100%;
+	border: 1px solid $primary-dark-gray;
+	padding: 10px 15px;
+    height: 45px;
+}
+
+.sg-group-vertical{
+	.sg-label{
+		display: block;
+	    color: $text-gray;
+	    text-align: left;
+	    padding: 10px 0;
+	}
+	select{
+		border: 1px solid $primary-dark-gray;
+	}
+
+	textarea{
+		border: 1px solid $primary-dark-gray;
+	}
+
+}
+
+.textarea{
+	background-color: white;
+	padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid $primary-dark-gray;
+    min-height: 110px;
+    .lock{
+    	-webkit-touch-callout: none; 
+    	-webkit-user-select: none; 
+    	-khtml-user-select: none; 
+    	-moz-user-select: none;
+    	-ms-user-select: none; 
+    	user-select: none;
+    }
+}

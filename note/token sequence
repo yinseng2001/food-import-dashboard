@@ -1,0 +1,42 @@
+#### AUTHENTICATION
+- we use the token for login
+- some one putting infor in mongodb, which token to user and role .
+
+- Token login sequence
+1. User that is getting from liferay
+2. Liferay login , liferay writing to mongodb POST login 
+3. Liferay login, create new session with a new role
+3.1. Store the token as md5 too or normal?
+3.2. Put the last session into the password of user
+3.3. Add time to user last_updated: TIMESTAMP,
+3.3. Get the session times from the sessionToken object (time + 20)
+TOKEN+MD5(char from 5 to 10 of MD5 string) md5 transform
+TOKEN: 994bd0ad-134c-4b5f-8ba4-c0a9fe5d03a7
+MD5 of that token: 91e51[3b129]24be5d250a391f0029648e
+TOken pass to sails js: 994bd0ad-134c-4b5f-8ba4-c0a9fe5d03a73b129
+4. Client will receive the token
+5. Client request the token to SailsJs for verify the token
+5. Sails Js will test the token and the time
+5.1. Sails Js will verify token as md5 code
+5.2  Find the User existed & the last token or not
+5.3  Validate the time of the token
+5.4. When accepted return the information of session and the role
+5.5. Add session from the password part and time to the session list and return to user. only the last one!
+
+Adjusting the md5 token
+
+======================================
+
+Encoding? Strategy crypting => Moving the validation md5 to Sailjs Service 
+
+tver klas on sat kert ot
+
+- set target for next week (24h)
+
+### DATA REFERENCE
+
+/// Write for favorite
+- Write every object to mongodb from liferay
+- Lookup for the user id reference to the documents for favorite, or other documents
+
+Call 50min add to task time.

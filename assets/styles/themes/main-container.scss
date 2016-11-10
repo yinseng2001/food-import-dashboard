@@ -1,0 +1,68 @@
+.navigation{
+	width: $nav-width;
+	height: 100vh;
+	position: fixed;
+	background-color: $primary-blue;
+	z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+.main-contrainer{
+	padding: 0px 30px 0 30px;
+}
+
+.action-bar{
+
+	.action-bar-inner{
+		position: fixed;
+	    display: flex;
+	    width: 100%;
+	    align-items: center;
+	    left: 0;
+	    top: 0;
+	    padding-left: 350px;
+	    z-index: 5;
+	    padding-left: 330px;
+	    padding-right: 30px;
+	}
+	
+    .action-bar-items{
+    	display: flex;
+	    background: white;
+	    width: 100%;
+	    padding: 18px 0px;
+	    position: relative;
+	    align-items: center;
+    }
+}
+
+
+.inner-container{
+	padding: 100px 0 20px 0;
+	.item-container{
+		padding: 20px;
+		min-height: 470px;
+		background-color: $primary-gray;
+	}
+}
+
+
+
+.sg-footer{
+	text-align: center;
+	color: $primary-blue;
+}
+
+.button-help{
+	position: fixed;
+    right: 30px;
+    bottom: 15px;
+}
+
+.input-search{
+	position: absolute;
+    right: 0;
+}
+
+

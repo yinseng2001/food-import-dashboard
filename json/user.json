@@ -1,0 +1,64 @@
+[
+	{
+	    "_id" : ObjectId("580f228513845cee86d7c276"),
+	    "email" : "sean",
+	    "password" : "MGVmYjcxYmUtZThmYi00ZTdkLWJiYWUtYjZiYWVjOGE2Zjg5",
+	    "last_updated": 1477394124052.0,
+	    "name" : "sean",
+	    "role" : ObjectId("581170a746460f0eb8690a81"),
+	    "session_token" : {
+	        "MGVmYjcxYmUtZThmYi00ZTdkLWJiYWUtYjZiYWVjOGE2Zjg5" : 1477394124052.0,
+	        "N2M5NWU1NjYtNjVjNi00YTI1LWJiOTYtZTJhYWZiOGIwNzM0" : 1477395701525.0,
+	        "NmFhNTM2MTQtNmYxZC00NDU0LTk1OTMtZGE0YmZkNzMxNmQy" : 1477395705621.0,
+	        "ZTk2YjZlN2YtNTczNy00Nzk4LWE3ZDMtZDQ5ODNiNzRhZTNl" : 1477395708964.0,
+	        "NDQwMTI4NmEtYjg4My00YzY1LWFhZmEtMmQ1N2I3ZTRmOGE1" : 1477468002938.0,
+	        "ODQzYTc0NTgtMTliMi00MDhjLWFmMWMtYzlmNjU0NWRhODcz" : 1477478290723.0,
+	        "ODUyMmJiZjItMzFkNi00ZGMxLTljMjQtZDc3Y2U4MTQyMGY5" : 1477478510337.0,
+	        "OTgzNDlmY2EtNTVjMS00NDYyLThmYzMtMTg5MzM4Yzc4NGNl" : 1477478514279.0,
+	        "MTdlNzMwMTUtYmUwMS00ZjcyLWIwM2ItOTJiMDZlZDA2NDFl" : 1477478535570.0,
+	        "NWM2Yzc1NTAtYTdhYi00ZmQwLWI5ZmUtNTY2ZjllNTcxYWI2" : 1477478596635.0,
+	        "Y2E2NTU1OTktZjA2MC00YmY2LTg0ZTYtZjQ3MDVmODg0ZmI0" : 1477478644697.0,
+	        "MGQ0ZTVmYTUtYWMzNy00MDM1LThlZDAtMWNmZjE1NTcxMzM1" : 1477478655843.0,
+	        "ZWFiZTQxMTUtODVjZC00YjkwLTgwNDYtNWViMDdmZGY2ZDhk" : 1477478775532.0,
+	        "NjIwODUzYzEtYzUzMC00ZGNjLWEzNGMtNjdkMGFjMGQ1YWM5" : 1477478908367.0,
+	        "NDdlZjA5YzUtNTU3NC00N2FmLWJlOWEtMTViM2YxMzI1OTA2" : 1477481756454.0,
+	        "ZWZjODg5NjAtMDIxZi00NzU3LTlhOTgtYmViZjI0YmFjOGFi" : 1477485297514.0,
+	        "OWI4ZmRlMjktMzkyYS00YjMzLTgyYjEtMDU5MWQ0NjI5OWNi" : 1477538117142.0,
+	        "NGJiOWIzMjQtYmIyOS00MTYyLWE2MzQtYmRlNDJkNzBhODMy" : 1477540960909.0,
+	        "MGVlYmVlNDAtNTNmNi00ZDQ0LWIxZDEtYzVlZWZmZTExOGJm" : 1477542188068.0
+	    }
+	},
+	{
+	    "_id" : ObjectId("5811820713845cee86d7c27a"),
+	    "email" : "jason",
+	    "password" : "123",
+	    "username" : "jason",
+	    "role" : ObjectId("581170a746460f0eb8690a81"),
+	    "session_token" : {
+	        "MmQzZTUyZDItYjY3NS00NmUwLWJiMGYtZGYxOGQ5YzBlZjU4" : 1477544371064.0
+	    }
+	},
+	{
+	    "_id" : ObjectId("581183d813845cee86d7c27b"),
+	    "email" : "jason@write",
+	    "password" : "123",
+	    "username" : "jason write",
+	    "role" : ObjectId("581170a346460f0eb8690a80")
+	}
+
+]	
+
+
+// Response
+
+[
+	{
+	    "_id" : ObjectId("580f228513845cee86d7c276"),
+	    "email" : "sean",
+	    "name" : "sean",
+	    "role" : ObjectId("581170a746460f0eb8690a81"),
+	    "session_token" : {
+	        "MGVmYjcxYmUtZThmYi00ZTdkLWJiYWUtYjZiYWVjOGE2Zjg5" : 1477394124052.0,
+	    }
+	}
+]

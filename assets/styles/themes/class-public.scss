@@ -1,0 +1,109 @@
+
+
+
+.scroll-hidden{
+	overflow: hidden;  
+}
+
+
+
+.auto-scale-in-proportion{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100px;
+    border: 1px solid #dfdfdf;
+}
+
+// button
+.button-primary{
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    // background-color: $primary-orange;
+    justify-content: center;
+    border: 0px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    &:hover{
+    	// background-color: $primary-green!important;
+    }
+}
+
+.button-dropdown-toggle{
+	width: 100%;
+	text-align: left;
+	padding: 0 10px;
+	height: 40px;
+	background-color: transparent;
+	border: 1px solid #ddd;
+    border-radius: 4px;
+	.caret{
+	    float: right;
+	    position: relative;
+	    top: 8px;
+		&.fix-pos{
+			
+		}
+   	
+	}
+	&:focus {
+	    border-color: #99baca;
+	    outline: 0;
+	    background: #f5fbfe;
+	    color: #444;
+	}
+}
+
+.dropdown-size-up{
+	height: 200px;
+    bottom: 100%;
+    top:inherit;
+    overflow: auto;
+    box-shadow:none;
+}
+
+
+// text 
+.text-ellipsis{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.form-group-input{
+	padding: 10px 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.text-align-left{
+	text-align: left;
+}
+
+// textbox
+.text-box-border{
+
+}
+.text-color-black{
+	color: black;
+}
+.text-box-border-default{
+	border: 1px solid #ddd;
+}
+
+
+
+.disable-display{
+	display: none !important;
+}
+
+
+.selected-tran{
+	// background-color: $primary-green !important; 
+	color: white !important; 
+}
+
+
+

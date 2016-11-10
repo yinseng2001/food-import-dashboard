@@ -1,0 +1,12 @@
+
+{% extends "layouts/default.html" %}
+
+
+{% block content %}
+	<auth-in>
+		<ng-view>	</ng-view>
+	</auth-in>
+	<auth-out>
+		{% include "pages/frontends/login.html" %}
+	</auth-out>
+{% endblock %}

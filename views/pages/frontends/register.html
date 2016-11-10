@@ -1,0 +1,49 @@
+{% extends "layouts/login-layout.html" %}
+
+{% block content %}
+
+	<div class="register-container" ng-controller="RegisterCtrl">
+		<div class="row space0">
+			<div class="col-md-6">
+				<div class="image-left" style="background-image: url('/images/login-image.jpg')">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="login">
+					<form class="login-form" name="frm_login" novalidate="">
+						<div class="image">
+							<img class="image-item" src="/images/logo/alertify-logo-vertical.png">
+						</div>
+
+						<div class="inputs-group">
+							<input type="text" class="input-tran box-white-border-btm mar-btm-10" placeholder="Full Name *" ng-model="user.full_name">
+							<input type="text" class="input-tran box-white-border-btm mar-btm-10" placeholder="Email *" ng-model="user.email">
+							<input type="password" class="input-tran box-white-border-btm mar-btm-10" placeholder="Password *" ng-model="user.password">
+							<input type="text" class="input-tran box-white-border-btm mar-btm-10" placeholder="Phone *" ng-model="user.phone">
+							<input type="text" class="input-tran box-white-border-btm mar-btm-10" placeholder="Company Name *" ng-model="user.company_name">
+							<!-- <input type="text" class="input-tran box-white-border-btm mar-btm-10" placeholder="Address"> -->
+							<div class="checkbox mar-btm-30 color-white-5">
+							    <label>
+							      	<input type="checkbox"> agree our <a class="color-white-5 text_" href="">terms</a> service & <a class="color-white-5 text_" href="">privacy policy</a> 
+							    </label>
+							 </div>
+						</div>
+
+						
+
+						<div class="signup-row">
+							<button type="" class="btn-radius" ng-click="register()">SIGN UP</button>
+							<h6 class="remember-title"> <a href="/">i am already a member.</a></h6> 
+						</div>
+					</form>
+					
+
+					<div class="footer">
+						©2016 FlexiTech. All Rights Reserved
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div><!--  end app-item-container-->	
+{% endblock %}

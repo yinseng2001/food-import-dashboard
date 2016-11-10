@@ -1,0 +1,54 @@
+
+// ======================= ultility =========================
+
+.row, .form-group {
+    &.space10 {
+        margin: 0px -10px;
+        > [class^="col-"] {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+    }
+    &.space8 { 
+        margin: 0px -8px;
+        > [class^="col-"] { 
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+        }
+    }
+    &.space5 { 
+        margin: 0px -5px;
+        > [class^="col-"] {
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+    }    
+    &.space2 {
+        margin: 0px -2px;
+        > [class^="col-"] {
+            padding-left: 2px !important;
+            padding-right: 2px !important;
+        }
+    }
+    &.space0 {
+        margin: 0px;
+        > [class^="col-"] {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+    }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+
+// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   color: rgba(white,.8);
+//   font-weight: 300;
+// }

@@ -1,0 +1,76 @@
+
+.app-item-container{
+	padding-top: 105px;
+	.item{
+		background-color: $primary-gray;
+    	border-radius: 5px;
+    	margin-bottom: 10px;
+		.item-bar{
+			display: flex;
+		    position: relative;
+		    align-items: center;
+		    padding: 12px 15px;
+		   	justify-content: space-between;
+		    .item-bar-dot{
+		    	
+		    }
+		    .btn-ele-loading{
+		    	width: 20px;
+		    }
+		}
+		.item-info{
+			position: relative;
+			background-color: $primary-dark-gray;
+			padding: 0 15px;
+		    display: flex;
+		    align-items: center;
+		    .right{
+		    	position: absolute;
+    			right: 15px;
+		    }
+		    .right-title{
+		    	text-align: right;
+		    }
+		    .middle{
+		    	span{
+		    		color: $text-color;
+		    	}
+		    }
+		    .left-title{
+		    	padding-top: 10px;
+		    	color: $text-color;
+		    }
+		}
+		.item-footer{
+			display: flex;
+		    align-items: center;
+		    position: relative;
+		    padding: 12px 15px;
+		    .item-footer-schedule{
+		    	line-height: 1px;
+		    	padding-right: 5px;
+		    }
+		    .item-footer-supervisor{
+		    	position: absolute;
+   				right: 15px;
+		    }
+		}
+	}
+	.item-blank{
+		min-height: 159px;
+		border: 2px dashed #dfdfdf;
+    	border-radius: 5px;
+    	display: flex;
+   		align-items: center;
+    	justify-content: center;
+    	.add-new-app{
+    		text-align: center;
+    		.title{
+    			padding-bottom: 8px;
+    		}
+    		.icon{
+    			font-size: 30px;
+    		}
+    	}
+	}
+}
