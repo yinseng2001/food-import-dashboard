@@ -7,8 +7,8 @@
 app.run(['$http', '$rootScope', '$location', '$timeout', '$routeParams', '$interval','$location',
     function($http, $rootScope, $location, $timeout, $routeParams, $interval,$location) {
         $rootScope.session = null;
-        $rootScope.isSessionLoggedIn = false;
-        // $rootScope.isSessionLoggedIn = true;
+        // $rootScope.isSessionLoggedIn = false;
+        $rootScope.isSessionLoggedIn = true;
 		$rootScope.isShowMyApp = true;
         // localStorage.isSessionLoggedIn = null;
         // delete localStorage.isSessionLoggedIn;

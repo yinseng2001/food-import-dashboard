@@ -61,6 +61,7 @@ var jsFilesToInject = [
   // '/js/libraries/crypt/aes.js',
   // '/js/libraries/crypt/pbkdf2.js',
   // '/js/libraries/jsencrypt.js',
+  '/js/libraries/excel/ExcelToJson.js',
 
   // '/bower_components/angular-bootstrap-datetimepicker-directive/angular-bootstrap-datetimepicker-directive.min.js',
   // Dependencies like jQuery, or Angular are brought in here

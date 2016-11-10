@@ -23,6 +23,7 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "js-base64": "^2.1.9",
+    "md5": "^2.2.1",
     "moment": "^2.15.2",
     "mongoose": "^4.6.5",
     "multer": "^1.2.0",

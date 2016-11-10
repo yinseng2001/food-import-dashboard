@@ -61,8 +61,8 @@ module.exports.connections = {
     host: 'db.shoppymesh.com',
     port: 27017,
     user: '', //optional
-    password: '', //optional
-    database: 'bunker' //optional
+    password: '', //optionals
+    database: 'food24' //optional
   },
 
   /***************************************************************************

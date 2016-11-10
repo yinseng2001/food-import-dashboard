@@ -1,200 +1,120 @@
 /*
-* @Author: yinseng
-* @Date:   2016-10-20 09:12:54
-* @Last Modified by:   yinseng
-* @Last Modified time: 2016-11-08 10:23:03
-*/
-app.controller('DashboardCtrl', ['$scope','$rootScope','Request','genfunc','$location', function ($scope,$rootScope,Request,genfunc,$location) {
-    $scope.renew = function(){
-        $scope.isLogining = true;
-        Request.get('/renew', {}, {
-            
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                $scope.isLogining = false;
-                $scope.renew  = data.result;
-                $scope.renew.session_token = {'OGQ2NDM5ZTEtMDdjZC00MWMxLWFmZDAtNGYyODQ4ZTlhMDlka5f3d':data.result.session_token['OGQ2NDM5ZTEtMDdjZC00MWMxLWFmZDAtNGYyODQ4ZTlhMDlka5f3d']};
-                console.log("renew===");
-                console.dir(data);
+ * @Author: yinseng
+ * @Date:   2016-10-20 09:12:54
+ * @Last Modified by:   yinseng
+ * @Last Modified time: 2016-11-08 10:23:03
+ */
+app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '$location', function($scope, $rootScope, Request, genfunc, $location) {
+    $scope.importClick = function() {
+        $("#importClick").trigger('click');
+    }
+
+    $scope.changeImport = function(element) {
+        let count = 0;
+        let file = element.files[0];
+        var obj = new ExcelToJSON();
+        obj.parseExcel(file, function(result) {
+
+            if (count == 0) {
+                console.log("========== result");
+                console.dir(result);
+                count = 1;
+
+                let directories = [];
+
+
+                _.each(result.data, function(v, k) {
+                    let directory = {
+                        'directory_name': v.name,
+                        'description': v.decription,
+                        'address': v.address,
+                        'latitude': v.latitude,
+                        'longitude': v.longitude,
+                        'phone_numbers': methods.seperatePhone(v.phone),
+                        'email_addresses': methods.seperateEmail(v.email),
+                        'website': v.website,
+                        'features': methods.seperate(v.Features),
+                        'categories': methods.seperate(v.type),
+                        'parkings': methods.seperate(v.parking),
+                        'drinks': methods.seperate(v.drink),
+                        'origin' : methods.seperate(v.origin),
+                        'payment_methods': methods.seperate(v.payment_method),
+                        'locale': {
+                            'kh': {
+                                'directory_name': v.name_kh,
+                                'description': v.decription_kh,
+                                'address': v.address_kh
+                            }
+                        },
+                        'weekend_price': v.weekend - price,
+                        'open_times': {
+                            'monday': v.hour_Mon,
+                            'tuesday': v.hour_Tue,
+                            'wednesday': v.hour_Wed,
+                            'thursday': v.hour_Thu,
+                            'friday': v.hour_Fri,
+                            'saturday': v.hour_Sat,
+                            'sunday': v.hour_Sun
+                        },
+                        'socials': {
+                            'facebook': v.facebook_page,
+                            'google+': '',
+                            'instagram': '',
+                            'pinterest': ''
+                        },
+                        'location': v.Location,
+                        'price_rate': v.price_standard
+                    };
+
+
+                    directories.push(directory);
+
+
+                });
+
+
+                console.log(directories);
+
+
+
+
+                // $scope.headers = result.hearders;
+                // $scope.excelData = result.data;
+                // $scope.$apply();
+                // $('.open-popup-matching-field').magnificPopup('open');
             }
-        })
-        .error(function(data, status, headers, config) {
-            $scope.authValid.message = data.result;
-            console.dir(data);
-        }); 
+        });
     }
 
-    $scope.checkAuth = function(){
-        $scope.isLogining = true;
-        Request.get('/auth', {
-          
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                $scope.isLogining = false;
-                $scope.authValid  = data.result;
-                console.log("checkAuth===");
-                console.dir(data);
+
+    let methods = {
+        seperatePhone: function(phone) {
+            if (phone) {
+                let split = phone.split("|");
+                return split;
+            }else{
+                return [];
             }
-        })
-        .error(function(data, status, headers, config) {
-            $scope.authValid.message = data.result;
-            console.dir(data);
-        });  
-    }
-
-	// visit 
-    $scope.visitProduct = function(){
-        alert("visitProduct");
-        requestVisit("/product");
-    }
-
-    $scope.visitPort = function(){
-        alert("visitPort");
-        requestVisit("/port");
-    }
-    $scope.visitCountry = function(){
-        alert("visitCountry");
-        requestVisit("/country");
-    }
-    $scope.visitSean = function(){
-        alert("visitSean");
-        requestVisit("/sean"); 
-    }
-
-    function requestVisit(url){
-        Request.post('/history', {
-            "actionNum": "2",
-            "url": url,
-            "actionUrl": {
-                "p1": "22",
-                "p2": "22"
+           
+        },
+        seperateEmail: function(email) {
+            if (phone) {
+                let split = str.split("|");
+                return split;
+            }else{
+                return [];
             }
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("visitProduct===");
-                console.dir(data);
+        },
+        seperate:function(str){
+            if (str) {
+                let split = str.split(",");
+                return split;
+            }else{
+                return [];
             }
-        })
-        .error(function(data, status, headers, config) {
-               console.dir(data);
-        });  
-    }
-    // end visit
-
-
-    // history back
-    $scope.historyBack = function(){
-        let query = "";
-        if($scope.index ) {
-            query = "?index=" + $scope.index;
         }
-        console.log(query);
-        Request.get('/history/back' + query, {
-         
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("historyBack===");
-                console.dir(data);
-                if(data.result)
-                    $scope.url = data.result.url;
-                else 
-                    $scope.url = "out of histroy";
-            }
-        })
-        .error(function(data, status, headers, config) {
-               console.dir(data);
-        }); 
-    }
-
-    // get most viewed by user
-     $scope.getMostViewedByUser = function(){
       
-        Request.get('/history/mostViewedByUser' , {
-         
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("getMostViewedByUser===");
-                console.dir(data);
-                $scope.mostViewedByuser = data.result;
-            }
-        })
-        .error(function(data, status, headers, config) {
-               console.dir(data);
-        }); 
-    }
-    // get most viewed
-    $scope.getMostViewed = function(){
-   
-        Request.get('/history/mostViewed', {
-         
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("getMostViewed===");
-                console.dir(data);
-                $scope.mostViewed = data.result;
-            }
-        })
-        .error(function(data, status, headers, config) {
-               console.dir(data);
-        }); 
-    }
+    };
 
 
-    // check role 
-    $scope.readRole = function(){
-   
-        Request.get('/roles', {
-         
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("readRole===");
-                console.dir(data);
-                $scope.roles = "Permission Ok";
-            }
-        })
-        .error(function(data, status, headers, config) {
-            $scope.roles = data.result;
-               console.dir(data);
-        }); 
-    }
-
-    $scope.writeRole = function(){
-   
-        Request.post('/role', {
-            'role' : 'test write role' 
-        }, {
-            'token' :  $rootScope.loginUser.token
-        })
-        .success(function(data, status, headers, config) {
-            if (data.code == 200) {
-                console.log("writeRole===");
-                console.dir(data);
-                $scope.roles = "Permission Ok";
-            }
-        })
-        .error(function(data, status, headers, config) {
-            $scope.role = data.result;
-               console.dir(data);
-        }); 
-    }
-	
 }])
