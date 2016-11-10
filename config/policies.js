@@ -34,34 +34,6 @@ module.exports.policies = {
      * and its actions                                                          *
      *                                                                          *
      ***************************************************************************/
-    AuthController: {
-
-        // Apply the `false` policy as the default for all of RabbitController's actions
-        // (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-        // '*': isRabbitMother,
-
-        // For the action `nurture`, apply the 'isRabbitMother' policy
-        // (this overrides `false` above)
-        // auth	: 'sessionAuth',
-
-        // Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-        // before letting any users feed our rabbits
-        // feed : ['isNiceToAnimals', 'hasRabbitFood']
-    },
-    HistoryController: {
-        index: 'sessionAuth',
-        store: 'sessionAuth',
-        back: 'sessionAuth',
-        mostViewedByUser: 'sessionAuth',
-        mostViewed: 'sessionAuth',
-    },
-    RoleController: {
-        index: ['sessionAuth', 'roleReadOnly'],
-        store: ['sessionAuth', 'roleWriteOnly']
-    },
-    FavoriteController: {
-        index: ['sessionAuth'],
-        store: ['sessionAuth']
-    }
+    
 
 };

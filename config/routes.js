@@ -46,25 +46,7 @@ module.exports.routes = {
   '/': {
     view: 'pages/index'
   },
-  // Auth
-  'POST /v1/login' : { controller: 'AuthController', action: 'login', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'GET /v1/auth' : { controller: 'AuthController', action: 'auth', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  // Role
-  'GET /v1/roles' : { controller: 'RoleController', action: 'index', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'POST /v1/role' : { controller: 'RoleController', action: 'store', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  // History
-  'GET /v1/histories' : { controller: 'HistoryController', action: 'index', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'POST /v1/history' : { controller: 'HistoryController', action: 'store', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'GET /v1/history/back' : { controller: 'HistoryController', action: 'back', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'GET /v1/history/mostViewedByUser' : { controller: 'HistoryController', action: 'mostViewedByUser', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'GET /v1/history/mostViewed' : { controller: 'HistoryController', action: 'mostViewed', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  // Favorite
-  'Get /v1/favorites' : { controller: 'FavoriteController', action: 'index', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  'POST /v1/favorite' : { controller: 'FavoriteController', action: 'store', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-  // renew timestamp
-  'Get /v1/renew' : { controller: 'FunctionController', action: 'index', cors: { origin: '*', headers: 'Content-Type, Authorization' } }, 
-
-
+  
 
   'GET /v1/createcharge' : 'PaymentsController.createCharge',
 
