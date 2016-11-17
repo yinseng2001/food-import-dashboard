@@ -11,7 +11,12 @@
 					</div>
 				</div>
 
-				
+				<div class="col-md-12">
+					<div class="item-blank" style="justify-content: space-around !important;">
+						<button ng-click="importLocationClick()">ImportLocation</button>
+						<input ng-clock ng-show="node" name="import" type="file" id="importClickLocation" onchange="angular.element(this).scope().changeImportLocation(this)">
+					</div>
+				</div>
 
 			</div>	
 			

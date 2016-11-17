@@ -2,7 +2,7 @@
 * @Author: yinseng
 * @Date:   2016-10-17 09:04:22
 * @Last Modified by:   yinseng
-* @Last Modified time: 2016-10-26 11:48:22
+* @Last Modified time: 2016-11-11 17:58:17
 */
 
 (function() {
@@ -65,7 +65,7 @@
             },
             // handle error
             onError : function(data, status, headers, config){
-                if(data.code == 500){
+                if(status == 500){
                     console.dir(data);
                     alert(data.result);
                 }

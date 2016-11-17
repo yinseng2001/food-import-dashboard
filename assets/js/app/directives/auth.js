@@ -61,40 +61,47 @@
                     },
                     login : function(){
                       
-                        // if (!$rootScope.user || !$rootScope.user.email || !$rootScope.user.password){
-                        //     return;
-                        // }
+                        if (!$rootScope.user || !$rootScope.user.email || !$rootScope.user.password){
+                            return;
+                        }
                         $rootScope.isLogining = true;
-                        // methods.initializeRequest();
-                        // var data = CryptService.create($rootScope.user, 60 * 60);
-                        console.log($rootScope.user);
-                        Request.post('/login',  $rootScope.user, {
-                            // 'X-AL-Sign-Key': data.encrypted_pass,
-                            // 'X-AL-Connect-ID':  $rootScope.session 
-                            'Content-Type': 'Authorization'
+                        methods.initializeRequest();
+                      
+
+                        console.log('$rootScope.user',$rootScope.user);
+
+
+                        var data = CryptService.create($rootScope.user, 60 * 60);
+                        console.log( 'data', data.encrypted);
+                        console.log('X-HH-Sign-Key',data.encrypted_pass);
+                        console.log('X-HH-Connect-ID',  $rootScope.session );
+                        Request.post('/admin/login', 
+                        {
+                            'data': data.encrypted
+                        }, {
+                            'X-HH-Sign-Key': data.encrypted_pass,
+                            'X-HH-Connect-ID':  $rootScope.session,
+                            'X-HH-Request-ID': 'YzUzYzcxNjJkODhjMWEzZGZjNWE4Yzc2MWNkYTZkYzU5MTllZDJhOTYyMmFkZDY1ZDUwZGIwMjI4YTNkYzFhNQ==' 
                         })
-                            .success(function(data, status, headers, config) {
-                           
-                                if (data.code == 200) {
-                                    $rootScope.isLogining = false;
-                                    $rootScope.loginUser = data.result;
-                                    $rootScope.isSessionLoggedIn = true;
-                                    // localStorage.isSessionLoggedIn = true;
-                                    console.dir(data);
-                                    $route.reload();
-                                    $location.path('');
-                                    // localStorage.userData = JSON.stringify(data); 
-                                    // console.dir(localStorage.userData);
-                                    // methods.requestApplication();
-                                }
-                                // return UIkit.notify(data.reason, 'danger');
-                            })
-                            .error(function(data, status, headers, config) {
-                                if (data.code == 400) {
-                                    $route.reload();
-                                    $location.path('');
-                                }
-                            });
+                        .success(function(data, status, headers, config) {
+                       
+                            if (data.code == 200) {
+                                
+                                $rootScope.isSessionLoggedIn = true;
+                                localStorage.isSessionLoggedIn = true;
+                                console.dir(data);
+                                localStorage.userData = JSON.stringify(data); 
+                                console.dir(localStorage.userData);
+                              
+                            }
+                            // return UIkit.notify(data.reason, 'danger');
+                        })
+                        .error(function(data, status, headers, config) {
+                            if (data.code == 400) {
+                                $route.reload();
+                                $location.path('');
+                            }
+                        });
                     }
                     
                 }   

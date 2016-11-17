@@ -2,13 +2,13 @@
 * @Author: yinseng
 * @Date:   2016-10-20 09:12:55
 * @Last Modified by:   yinseng
-* @Last Modified time: 2016-11-03 15:04:18
+* @Last Modified time: 2016-11-11 14:01:16
 */
 app.run(['$http', '$rootScope', '$location', '$timeout', '$routeParams', '$interval','$location',
     function($http, $rootScope, $location, $timeout, $routeParams, $interval,$location) {
         $rootScope.session = null;
-        // $rootScope.isSessionLoggedIn = false;
-        $rootScope.isSessionLoggedIn = true;
+        $rootScope.isSessionLoggedIn = false;
+        // $rootScope.isSessionLoggedIn = true;
 		$rootScope.isShowMyApp = true;
         // localStorage.isSessionLoggedIn = null;
         // delete localStorage.isSessionLoggedIn;
