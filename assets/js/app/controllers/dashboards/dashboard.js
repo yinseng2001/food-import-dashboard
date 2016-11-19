@@ -100,6 +100,16 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
         }, function(err) {}, sheetName);
     }
 
+    location:[ {
+        province : 'phnom penh',
+        district : [{
+            district : 'mean chey',
+            commune : [{
+
+            }]
+        }],
+    }]
+
     $scope.changeImportLocation = function(element) {
         let count = 0;
         let file = element.files[0];
@@ -111,16 +121,77 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                 console.log("========== result");
                 console.dir(result);
                 let locations = [];
+                let province_name = '';
+                let district_name = '';
+                let province = {};
+                let district = {};
+                let commune = {};
                 _.each(result.data, function(v, k) {
-                    if (v.address != 'address') {
-                        let location = {
-                            'province': v.Province || 'import',
-                            'district': v['District/City/Khan'] || 'import',
-                            'commune' : v['Commune/Sangkat'] || 'import'
-                            
-                        };
-                        locations.push(location);
+
+                    if(province_name.trim() != v.Province.trim()){
+                        if(district.district) {
+                            province.district.push(district);
+                            locations.push(province);
+                        }
+
+                        province_name = v.Province;
+                        province = {
+                            province : v.Province.trim(),
+                            district : []
+                        }
+
+                        // district
+                        district_name = v['District/City/Khan'].trim();
+                        district = {
+                            district : v['District/City/Khan'].trim() ,
+                            commune : []
+                        }
+
+                        // conmmune
+
+                        commune  = {
+                            commune : v['Commune/Sangkat'].trim()
+                        }
+
+
+                        district.commune.push(commune);
+                        console.log(district);
+                      
+
+                    }else{
+                        // push district
+                        if(district_name.trim() != v['District/City/Khan'].trim()){
+                            province.district.push(district);
+
+
+                            district_name = v['District/City/Khan'].trim();
+                            district = {
+                                district : v['District/City/Khan'].trim() ,
+                                commune : []
+                            }
+
+                            commune  = {
+                                commune : v['Commune/Sangkat'].trim()
+                            }
+
+                            district.commune.push(commune);
+                        }else{
+                            // push commune
+                            commune  = {
+                                commune : v['Commune/Sangkat'].trim()
+                            }
+                            district.commune.push(commune);
+                        }
                     }
+
+
+                    // let location = {
+                    //     'province': v.Province || 'import',
+                    //     'district': v['District/City/Khan'] || 'import',
+                    //     'commune' : v['Commune/Sangkat'] || 'import'
+                        
+                    // };
+                    // locations.push(location);
 
                 });
 
@@ -134,7 +205,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
              
                 Request.post('/admin/locations/multi', 
                 {
-                    'locations': locations
+                    'locations': locations.slice(0, 1000)
                 }, {
                     'Authorization': 'Bearer ' + token,
                     'X-HH-Connect-ID':  session ,
