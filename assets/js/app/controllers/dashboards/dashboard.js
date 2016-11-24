@@ -19,7 +19,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
         let sheetName = 'Entry';
         obj.parseExcel(file, function(result) {
             count++;
-            if (count == 2) {
+            if (count == 1) {
                 console.log("========== result");
                 console.dir(result);
                 let directories = [];
@@ -48,7 +48,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                                     'address': v.address_kh || ''
                                 }
                             },
-                            'weekend_price': v['weekend-price'],
+                            'weekend_price': v['weekend-price'] || '',
                             'open_times': {
                                 'monday': v.hour_Mon || '',
                                 'tuesday': v.hour_Tue || '',
@@ -65,7 +65,8 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                                 'pinterest': ''
                             },
                             'location': v.Location || '',
-                            'price_rate': v.price_standard || 0
+                            'price_standard' : v.price_standard || '',
+                            'price_rate':  0
                         };
                         directories.push(directory);
                     }
@@ -228,7 +229,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
     let methods = {
         seperatePhone: function(phone) {
             if (phone) {
-                let split = phone.split("|");
+                let split = phone.split(",");
                 return split;
             } else {
                 return [];
@@ -237,7 +238,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
         },
         seperateEmail: function(email) {
             if (email) {
-                let split = email.split("|");
+                let split = email.split(",");
                 return split;
             } else {
                 return [];
