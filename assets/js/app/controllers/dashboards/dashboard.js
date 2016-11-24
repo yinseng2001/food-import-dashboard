@@ -40,6 +40,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                             'parkings': methods.seperate(v.parking),
                             'drinks': methods.seperate(v.drink),
                             'origins': methods.seperate(v.origin),
+                            'foods': methods.seperate(v.menu),
                             'payment_methods': methods.seperate(v.payment_method),
                             'locale': {
                                 'kh': {
