@@ -10,7 +10,7 @@
     app.service('Request', ['$http', '$rootScope', '$window', function($http, $rootScope, $window) {
         namespace.api_domain = 'http://localhost:3000';
         // namespace.api_domain = 'http://api.shoppymesh.com:3000';
-    	var api = namespace.api_domain + '/v1';
+    	var api = namespace.api_domain + '/v1.1';
         var cleanup = function() {
         };            
 
