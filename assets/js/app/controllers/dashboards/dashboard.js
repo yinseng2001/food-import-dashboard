@@ -26,7 +26,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                 _.each(result.data, function(v, k) {
                     if (v.address != 'address') {
                         let directory = {
-                            'version' : 1,
+                            'version' : 4,
                             'directory_name': v.name || 'import',
                             'description': v.decription || 'import',
                             'short_description' : '',
@@ -41,7 +41,7 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                             'parkings': methods.seperate(v.parking),
                             'drinks': methods.seperate(v.drink),
                             'origins': methods.seperate(v.origin),
-                            'locations':methods.seperate(v.Province + ","+ v.District + "," + v.Commune), 
+                            'locations':methods.seperate(v.Province + ","+ v.District  + "," + v.Commune), 
                             'foods': methods.seperate(v.menu),
                             'payment_methods': methods.seperate(v.payment_method),
                             'locale': {
@@ -69,10 +69,11 @@ app.controller('DashboardCtrl', ['$scope', '$rootScope', 'Request', 'genfunc', '
                             },
                             'location': v.Location || '',
                             'price_standard' : v.price_standard || '',
-                            'min_price':v.min_price || 0,
-                            'max_price':v.max_price || 0,
+                            'min_price':v.min_price*1.0 || 0,
+                            'max_price':v.max_price*1.0 || 0,
                             'price_rate':  0
                         };
+                        console.log("check min max",v.Province,v.District,v.Commune);
                         directories.push(directory);
                     }
 
